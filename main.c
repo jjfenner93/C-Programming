@@ -47,7 +47,9 @@ int main(void) {
   
   printf("What are your two initials?\n");
   firstInit = getch(); // Asking for the first initial.
+  putch(firstInit);
   lastInit = getch(); // Now to enter the next.
+  putch(lastInit);
   printf("Output: %c%c\n", firstInit, lastInit); // Prints your initials.
 
   return 0;

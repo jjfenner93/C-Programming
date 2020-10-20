@@ -44,6 +44,7 @@ int main(void) {
   printf("Output: %c%c\n", firstInit, lastInit); // Prints your initials.
   */
 
+  
   printf("What are your two initials?\n");
   firstInit = getch(); // Asking for the first initial.
   lastInit = getch(); // Now to enter the next.

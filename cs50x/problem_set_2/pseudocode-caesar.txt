@@ -1,0 +1,140 @@
+First off use the arg on main to get how many arguments are being used,
+to find out, get that first.
+
+Next have a prompt for each time and get the input to do the output etc.
+First check if it is being used right the arguments.
+
+Ok so make sure that the program only takes the number whatever number that is and store it with get_int most likely.
+Then ask for plaintext and await text input. Ignore non-alphabetical characters, number and spaces, the program will run,
+anyway.
+Shift the letters forward by whatever number, but I'm guessing if it gets to Z then it needs to go back to A...
+Keep the uppercase or lowercase of the letter.
+
+ s = get_string("plaintext: "); // Enter plaintext here.
+        for (int i = 0, l = strlen(s); i < l; i++)
+        {
+
+            printf("ciphertext: %c", s[i]); // This is all one line.
+        }
+        printf("\n"); // It will do a new line here when finished.
+        char a = 'A';
+        printf("%d\n", a); // This code here show that A is also the number 65. Just shift depending on the detected case.
+        return 0;
+
+                //s = get_string("plaintext: "); // Enter plaintext here.
+        for (int i = 0; i < argc; i++)
+        {
+            for (int j = 0, l = strlen(argv[i]); j < l; j++)
+            {
+                if (!isdigit(argv[i][j]))
+                {
+                    printf("NOT A DIGIT Usage: ./caesar key\n");
+                    return 1; // There was an error then end program.
+                } else {
+                    s = get_string("plaintext: ");
+                    printf("%c", argv[i][j]);
+                }
+            }
+            printf("\n");
+        }
+
+        for (int a = 0, l2 = strlen(argv[i]); a < l2; a++)
+                    {
+                        char c[i] = (p[i] + atoi(argv[i][j])) % 26;
+                    }
+                    printf("print the number: %c\n", argv[i][j]);
+                    printf("TEST\n: ", c[i]);
+                    p = get_string("plaintext: ");
+                    return 0;
+
+
+                    for (int m = 0, l2 = strlen(p); m < l2; m++)
+                    {
+                        //c[m] = p[m];
+                        //printf("ciphertext: %c", (c[m] + k) % 26);
+                        printf("%c", (p[m] + k) % 26);
+                        c = (p[m] + k) % 26;
+                        printf("%c", c[m]);
+                    }
+                    printf("\n");
+
+
+                    for (int i = 1; i < argc; i++) // Checks from argument 1.
+        {
+            for (int j = 0, l = strlen(argv[i]); j < l; j++) // Will print off each character from 0.
+            {
+                if(isalnum(argv[i][j])) // It will do it in one go here.
+                // The reason why this doesn't work at all is that I have no idea how you
+                // would get the second argument (or argument 1 from) and then add it to the character of the string.
+                {
+                    p = get_string("plaintext: ");
+                    k = argv[i][j];
+                    for (int m = 0, l2 = strlen(p); m < l2; m++)
+                    {
+                        printf("ciphertext: %c\n", ((int)p[m] + k) % 26);
+                    }
+                    return 0;
+                } else {
+                    printf("Usage: ./caesar key\n");
+                    return 1;
+                }
+            }
+            printf("\n");
+        }
+
+        // You can't store argv and coerce it into a string like that you have to use it at runtime with a loop somehow.
+    // argv is an array of string, argv[1][1] is going to get the 2nd character of the 2nd element in the array.
+    // It could be what you do is a loop like the last one and add the number somehow (hack).
+    // Take the number entered and add to the character number. However I'm not
+    // quite sure how you would do this detect if it is uppercase or lowercase and then
+    // somehow shift the number along there so uppercase is: 65-90
+    //printf("ciphertext: %s\n"); // ciphertext.
+
+    //for (int j = 0, n = strlen(argv[i]); j < n; j++)
+    //{ Incorporate this code maybe?
+
+    // If the argument 1 is not a number give the usage message.
+    // If the parameters are several, give usage message.
+    // Don't rely on atoi.
+}
+
+// Scrapped.
+if (argc == 1 || argc > 2) // Checks if ./caesar has been written without parameters.
+    {
+        printf("Usage: ./lpac minutes\n");
+        return 1; // There was an error then end program.
+    }
+    else
+    {
+        for (int i = 1; i < argc; i++) // It is needed for runtime or "Segmentation fault" will probably flag up.
+        {
+            errno = 0;
+            char *c; // Just an empty character to check against.
+            string *s = NULL;
+            long k = strtol(argv[i], &c, 10);
+            for (int j = 1, n = strlen(argv[i]); j < n; j++)
+            {
+                if (!isdigit(argv[i][j]))
+                {
+                    printf("Usage: ./lpac minutes\n");
+                    return 1;
+                }
+            }
+            if (c == argv[i]) // Need to handle non-numeric key.
+            {
+                printf("Usage: ./lpac minutes\n"); // If it is not a number.
+            }
+            else if ((k == LONG_MIN || k == LONG_MAX) && errno == ERANGE)
+            {
+                 printf("Usage: ./lpac minutes\n"); // It is out of range.
+            }
+            else
+            {
+                for (int j = 1, n = strlen(argv[i]); j < n; j++)
+                {
+                    printf("Minutes: %g", (double) argv[i][j]);
+                }
+            }
+        }
+                return 0;
+    }

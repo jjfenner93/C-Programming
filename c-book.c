@@ -52,5 +52,12 @@ int main(void) {
   putch(lastInit);
   printf("Output: %c%c\n", firstInit, lastInit); // Prints your initials.
 
+  // Maybe try to make the coin mech but in code form:
+  /*
+  if (coin == correctWeight)
+  {
+    
+  }
+  */
   return 0;
 }

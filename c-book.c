@@ -38,9 +38,9 @@ int main(void) {
 
   putchar('\n');
   */
-
-  char firstInit, lastInit, n1;
   /*
+  char firstInit, lastInit, n1;
+
   printf("What are your two initials?\n");
   firstInit = getchar(); // Asking for the first initial.
   n1 = getchar(); // Then this acts as a new line, you don't need to assign anything to it.
@@ -56,15 +56,16 @@ int main(void) {
   lastInit = getch(); // Now to enter the next.
   putch(lastInit);
   printf("Output: %c%c\n", firstInit, lastInit); // Prints your initials.
-*/
-  // Maybe try to make the coin mech but in code form:
+  */
   /*
+  // Maybe try to make the coin mech but in code form:
+  
   if (coin == correctWeight)
   {
     
   }
   */
-
+  /*
   int i;
   int hasUpper, hasLower, hasDigit, hasPunct;
   char user[25], password[25];
@@ -102,13 +103,14 @@ int main(void) {
   if ((hasDigit) && (hasUpper) && (hasLower) && (hasPunct))
   {
     printf("\n\nExcellent work, %s, \n", user);
-    printf("Your password has upper and lowercase ");
-    printf("letters and a number.");
+    printf("Your password has least one uppercase letter, lowercase letters, some numbers and at least one symbol.");
   } else {
     printf("\n\nYou should consider a new password, %s, \n", user);
-    printf("One that uses upper and lowercase letters ");
-    printf("and a number.");
+    printf("One that uses at least one uppercase letter, lowercase letters, some numbers and at least one symbol.");
   }
+  */
+
+  // Next...
 
   return 0;
 }

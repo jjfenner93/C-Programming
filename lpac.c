@@ -10,6 +10,8 @@
 #include <limits.h>
 #include <time.h> // For time.
 
+#define MONTHS 12
+
 int main(int argc, char *argv[]) // Pointing to memory with the argv[]
 {
     /*
@@ -413,9 +415,32 @@ int main(int argc, char *argv[]) // Pointing to memory with the argv[]
     printf("You just finished chapter %d.\n You have finished ", 4);
     printf("%.1f%c of the book.\a\n", 12.500, '%');
     */
-    
+    /*
     int a = (4 < 10);
     printf("%d\n", a); // Prints 1 (true).
+    */
+
+    float sample_data[500] = { 100.0, 300.0, 500.5 };
+
+    // gcc with C99
+    int days[MONTHS] = { 31, 28, 45 };
+    int index;
+
+    for (index = 0; index < MONTHS; index++)
+        printf("Month %d has %2d days.\n", index + 1, days[index]);
+
+    int array_values[10] = { 0, 1, 4, 9, 16 };
+    int i;
+
+    for (i = 5; i < 10; ++i)
+    array_values[i] = i * i;
+
+    for (i = 0; i < 10; ++i)
+    printf("array_values[%i] = %i\n", i, array_values[i]);
+
+    //int matrix[4][3] = { [0][0] = 1, [1][1] = 5, [2][2] = 9 };
+
+    
 
     //endprocedure
     return 0;

@@ -5,6 +5,9 @@
 #include <stdbool.h>
 #include <string.h>
 
+#define TWO_PERCENT 0.2
+#define TWELVE_PERCENT 0.12
+
 // Function prototypes
 // bool issymbol(string input);
 
@@ -109,8 +112,30 @@ int main(void) {
     printf("One that uses at least one uppercase letter, lowercase letters, some numbers and at least one symbol.");
   }
   */
+  /*
+  // Fix this later...(NI Calculations).
+  double weeklyEarnings = 160.50;
+  double deduction = 0.0;
+  double deductionResult = 0.0;
+  float max = 805.00;
+  float min = 153.00;
 
-  
+  if (weeklyEarnings < min)
+  {
+    printf("No National Insurance to pay.");
+  } else if (weeklyEarnings > min && weeklyEarnings < max)
+  {
+    deduction = TWELVE_PERCENT * weeklyEarnings;
+    deductionResult = deduction - weeklyEarnings;
+    printf("National Insurance to be payed: £%f", deductionResult);
+  } else if (weeklyEarnings > max)
+  {
+    deduction = TWO_PERCENT * weeklyEarnings;
+    printf("National Insurance to be payed: £%f", deductionResult);
+  }
+  */
+
+
 
   return 0;
 }

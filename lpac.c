@@ -1,6 +1,6 @@
 #include <stdio.h> // Include some of the file contents in order to compile.
 #include <stdlib.h>
-#include <cs50.h> // A preprocessor directive.
+// #include <cs50.h> // A preprocessor directive.
 #include <stdbool.h> // To use the standard bool type.
 
 #include <string.h>
@@ -129,7 +129,7 @@ int main(int argc, char *argv[]) // Pointing to memory with the argv[]
     // 3-4; // expression result unused.
     /*
     int d = 10;
-    printf("c is %d\n", d--); // Doesn't decrement this way.
+    printf("c is %d\n", d--); // Doesn't decrement this way (need pre-fix).
 
     _Bool a = true;
     _Bool b = true;
@@ -419,7 +419,7 @@ int main(int argc, char *argv[]) // Pointing to memory with the argv[]
     int a = (4 < 10);
     printf("%d\n", a); // Prints 1 (true).
     */
-
+   /*
     float sample_data[500] = { 100.0, 300.0, 500.5 };
 
     // gcc with C99
@@ -437,10 +437,135 @@ int main(int argc, char *argv[]) // Pointing to memory with the argv[]
 
     for (i = 0; i < 10; ++i)
     printf("array_values[%i] = %i\n", i, array_values[i]);
+ 
+    int matrix[4][3] = { [0][0] = 1, [1][1] = 5, [2][2] = 9 };
 
-    //int matrix[4][3] = { [0][0] = 1, [1][1] = 5, [2][2] = 9 };
+    // Assigning the sum of i * i e.g. to index
+    // position 5 (5 * 5) it will be equivalent to: array_values[5] = 25;
+    // primes[i] = i * i;
+    */
 
-    
+    // Create a program that will find all the prime numbers from 3-100.
+    // No input to this program.
+    // Create an array that will store each prime number as it is generated.
+    // Hard-code the first two...?
+    // Loop to find the prime numbers and loop to print the primes array (at the end).
+    // Can use this as an exit condition: p / primes[i] >= primes[i] in the innermost loop.
+    // A test to ensure that the value of p does not exceed the square root of primes[i]
+    // Skip checks for even numbers e.g. i % 2 == 0.
+
+    // A prime number will only have two factors.
+    // A prime number will only be divisible by 1 and by itself.
+    // Ok so find all the prime numbers from 3-100, get rid of the even numbers
+    // have a calculation that will check if it is divisible by 1 and itself and not others?
+    // somehow feed these numbers back into an array then print all the primes.
+    // First check: does 3 divide by 1 and 3? if true put into the primes[100].
+    /*
+    // Prime numbers go into the array starting with 5 at position 2.
+    int primes[33] = { 2, 3 };
+    int counter = 1;
+    int i;
+
+    for (i = 3; i <= 100; i++)
+    {
+        // If the number is even, skip.
+        if (i % 2 == 0)
+            continue;
+
+        // A condition to check if 3 goes
+        // into the current number without a remainder.
+        // This is for the process of elimination,
+        // being that if 3 went into any of the numbers it would not be prime.
+        
+        // This does not produce an accurate output!
+        
+        if (!(i % 5) == 0)
+        {
+            // Increment counter to keep track of each prime number entry.
+            // And adds the prime number to the correction position: 2.
+            counter++;
+            primes[counter] = i;
+        }
+    }
+
+    // Reset i to 0 and print the primes array.
+    for (i = 0; i < 34; ++i)
+    printf("%i\n", primes[i]);
+    */
+    /*
+    // Solution:
+    int p;
+    int i;
+
+    int primes[50] = { 0 };
+    int primeIndex = 2;
+
+    bool isPrime;
+
+    // hardcode prime numbers
+    primes[0] = 2;
+    primes[1] = 3;
+
+    for(p = 5; p <= 100; p = p + 2) // Even numbers omitted by adding 2.
+    {
+        isPrime = true;
+
+        // 5 / 3 is 1.66 and 1.66 is not more than or equal to 3. 
+        // which means its false so it is a prime number.
+        // needs to be more than or equal to 5 etc.
+        // It wasn't so it is a prime number.
+        // 7 / 3 is 2.33 and not more than or equal to 3 so 7 is prime.
+        // 3 goes into 9 which means it is not a prime.
+        // It looks like there are 2 checks the quotient and the
+        // remainder of the calculation e.g. p / primes and p % primes.
+        // quotient >= 3
+        // 11 is a prime number because the quotient is more than,
+        // 3 but 3 does not go into 11 with no remainder so it is prime.
+
+        // It has to check against 5 if 3 did not go into the number wholely.
+        // Then if 5 didn't, it will finally check 7, it seems that it does not
+        // increment to more than that for 100 items, but if there were more
+        // maybe it keeps checking against numbers already in the array.
+        // I don't fully understand but the first few numbers must be
+        // The ones you check against and they are no multiple of 5
+        for (i = 1; isPrime && p / primes[i] >= primes[i]; ++i)
+        {
+            // e.g. 3 (the checked number) goes into 9
+            // therefore this condition is true and it is not a prime number.
+            // e.g. 3 does not go into 55 so it fails the check,
+            // however the next check with 5; does go into 55
+            // which means it is a multiple of 5 and not a prime number.
+            // It will then exit the 'three checked numbers: 3, 5, 7' and begin
+            // the next loop cycle. It is a mathematical check.
+
+            // The theory behind it is that: if any prime number in the
+            // current array that has been added which is a prime number
+            // if any of the numbers go into it wholly then it is not prime
+            // and it will be set to false, it will keep checking along.
+            // This way it has been set up to check purely against,
+            // a prime number, if a prime number goes into the number that
+            // isn't even then it isn't a prime number.
+            if (p % primes[i] == 0)
+            {
+                isPrime = false;
+                printf("%i ", i);
+            }
+        }
+        if (isPrime == true)
+        {
+            primes[primeIndex] = p;
+            ++primeIndex;
+        }
+    }
+
+    for (i = 0; i < primeIndex; ++i)
+         printf ("%i  ", primes[i]);
+
+    printf("\n");
+    */
+
+	// Will terminate the string at \0 early.
+	printf("The character \0 is used to terminate a string.");
 
     //endprocedure
     return 0;

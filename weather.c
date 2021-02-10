@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     // I could define the months and years.
     // First year is at [0] for the row.
 	// [0][0] is Jan 2015.
+    // rainfalls is an example of data.
     float rainfalls[YEARS][MONTHS] =
     {
         { 4.3, 4.3, 4.3, 4.4, 3.3, 5.5, 3.3, 5.5, 5.5, 3.3, 1.1, 6.6 },

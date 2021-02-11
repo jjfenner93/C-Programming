@@ -23,9 +23,13 @@
 
     Issues:
     1. It cannot ask again if you enter an item over,
-    the totalCash amount, it will just exit (can't re enter).
-    2. It cannot take a non integer input, it will crash.
+    the totalCash amount, it will just exit however,
+    it will subtract the previous item and display properly.
+    I also needs to say "You can purchase no items with your cash" instead.
+    2. It cannot take a non integer input, it will crash e.g. 'd', glitch
+    or infinite loop (it must parse all the ASCII as it shouldn't).
     3. Counts itemNo even if input 0.
+    4. Probably more bugs there.
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -63,6 +67,10 @@ int main(int argc, char *argv[])
         // it'll have to be with a for, or while.
         // Current behaviour: it exits an subtracts the item you tried adding,
         // as it went over your totalCash.
+        
+        // It currently exits when you input it over totalCash.
+        // This does not work with a do while loop, you
+        // can't use continue.
         if (totalCash < 0.0)
         {
             printf("Overdrawn.\n");

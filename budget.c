@@ -1,6 +1,5 @@
 /*
-
-    Initial plan:
+    Plan:
     Only so the number input is a float.
     Add an exit condition and display the final total that run.
     This program is so that you can input how much money you have,
@@ -27,7 +26,6 @@
     the totalCash amount, it will just exit (can't re enter).
     2. It cannot take a non integer input, it will crash.
     3. Counts itemNo even if input 0.
-
 */
 #include <stdio.h>
 #include <stdlib.h>

@@ -567,6 +567,10 @@ int main(int argc, char *argv[]) // Pointing to memory with the argv[]
 	// Will terminate the string at \0 early.
 	printf("The character \0 is used to terminate a string.");
 
+    // Functions
+
+    
+
     //endprocedure
     return 0;
 }

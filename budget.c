@@ -25,11 +25,11 @@
     1. It cannot ask again if you enter an item over,
     the totalCash amount, it will just exit however,
     it will subtract the previous item and display properly.
-    I also needs to say "You can purchase no items with your cash" instead.
+    It also needs to say "You can purchase no items with your cash" instead.
     2. It cannot take a non integer input, it will crash e.g. 'd', glitch
     or infinite loop (it must parse all the ASCII as it shouldn't).
     3. Counts itemNo even if input 0.
-    4. Probably more bugs there.
+    4. Probably more bugs in there.
 */
 #include <stdio.h>
 #include <stdlib.h>

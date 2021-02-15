@@ -47,7 +47,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
 
 unsigned int hcf(unsigned int x, unsigned int y);
 

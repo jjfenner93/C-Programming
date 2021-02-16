@@ -11,10 +11,13 @@
     Use abs function as implemented.
 
     Pseudocode:
-    So for hcf you have to figure out how to check,
+    1. Roughly - So for hcf/gcd you have to figure out how to check,
     both arguments against each other and if there is a match.
-    so perhaps a check to check each time either of the numbers.
-    Match.
+    So perhaps a check to check each time either of the numbers,
+    match.
+    If a number goes into it without a remainder then
+    it should be recorded that it happened but at the same time
+    as the other number get the last match.
 
     x = input("12")
     y = input("18")
@@ -22,13 +25,9 @@
     
     for i <= x
     if x MOD i == 0
-    firstValue = i // 6 will be put in here
+    firstValue = i
     endif
     endfor
-
-    // unless you first check both numbers to see which is highest.
-    // if false it can check in the other condition?
-
 
     for i <= y
     if y MOD i == 0
@@ -36,12 +35,15 @@
     endif
     endfor
 
-    if a number goes into it without a remainder then
-    it should be recorded that it happened but at the same time as the other number
-    get the last match, could be based on a condition checking
-    if the loop is still going,
+    Check both numbers to see which is highest too etc.
 
-    
+    2. First find how you would find an absolute of an
+    number. It is the space between.
+    It will turn a negative number into a positive.
+
+
+
+
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,7 +75,7 @@ unsigned int hcf(unsigned int x, unsigned int y)
         checker = y;
     }
 
-    for (int i = 1; i < checker; i++)
+    for (int i = 1; i <= checker; i++)
     {
         if (x % i == 0)
         {

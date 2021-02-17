@@ -19,10 +19,12 @@
     it should be recorded that it happened but at the same time
     as the other number get the last match.
 
+    Check both numbers to see which is highest too etc.
+
     x = input("12")
     y = input("18")
     i = 1
-    
+
     for i <= x
     if x MOD i == 0
     firstValue = i
@@ -35,14 +37,44 @@
     endif
     endfor
 
-    Check both numbers to see which is highest too etc.
-
     2. First find how you would find an absolute of an
     number. It is the space between.
     It will turn a negative number into a positive.
+    Either turn the number into a positive by adding
+    the negative values detection e.g. -5 to 5.
+    or something more elaborate.
 
+    How to de neg it:
+    might just need a loop.
+    could be a mathematical way to
+    get the number positive
+    you would add 6 but that would go to 0
+    You could double it but there would still be a neg sign.
 
+    The num will be less than 0 and therefore a neg,
+    then the formula to convert (or remove the neg sign).
+    OK so double it, if it is a neg and then,
+    subtract to make the neg a positive. Only positives.
+    Noticed that it was just a formula no loops needed &
+    only the conditional statements.
 
+    num = -6
+
+    if num < 0
+    num = (num * 2) - num
+    return num
+    else
+    return num
+    endif
+
+    3. Find the formula for square root of a number and
+    use the absolute function to check if the no. was negative?
+    so 2^2 = 2 * 2 = 4 so it should output 4 but now for sqrt that is
+    to output 2 for the sqrt of 4.
+    Desired output: 2, Input used: 4.
+    utilise absolute fn? (ideally).
+
+    
 
 */
 #include <stdio.h>
@@ -50,17 +82,28 @@
 #include <string.h>
 #include <ctype.h>
 
-unsigned int hcf(unsigned int x, unsigned int y);
+unsigned int hcf(unsigned int num1, unsigned int num2);
+float absolute(float num);
+int squarert(int num);
 
 int main(int argc, char *argv[])
 {
-    unsigned int hcfNo = hcf(12, 18); // That should return 6.
-    printf("%d", hcfNo);
+    unsigned int hcf1 = hcf(12, 18); // That should return 6.
+    printf("%d\n", hcf1);
+
+    int abs1 = absolute(10);
+    printf("%i\n", abs1);
+
+    float abs2 = absolute(-56.765);
+    printf("%f\n", abs2);
+
+    int squarert1 = squarert(10);
+    printf("%d", squarert1);
 
     return 0;
 }
 
-unsigned int hcf(unsigned int x, unsigned int y)
+unsigned int hcf(unsigned int num1, unsigned int num2)
 {
     unsigned int firstValue = 0;
     unsigned int secondValue = 0;
@@ -69,20 +112,20 @@ unsigned int hcf(unsigned int x, unsigned int y)
 
     // This code is used so that it will never
     // use a number lower (goes from the highest to compare).
-    if (x > y) {
-        checker = x;
+    if (num1 > num2) {
+        checker = num1;
     } else {
-        checker = y;
+        checker = num2;
     }
 
     for (int i = 1; i <= checker; i++)
     {
-        if (x % i == 0)
+        if (num1 % i == 0)
         {
             firstValue = i;
         }
 
-        if (y % i == 0)
+        if (num2 % i == 0)
         {
             secondValue = i;
         }
@@ -95,12 +138,31 @@ unsigned int hcf(unsigned int x, unsigned int y)
     return lastValue;
 }
 
-void function2(void)
+float absolute(float num)
 {
+    float positive = 0.0;
 
+    if (num < 0)
+    {
+        positive = (num * 2);
+        num -= positive;
+        return num;
+    }
+    else
+    {
+        return num;
+    }
+    return num;
 }
 
-void function3(void)
+int squarert(int num)
 {
-
+    if (absolute(num) < 0)
+    {
+        printf("-1.0");
+    }
+    else
+    {
+        // formula for sqrt here
+    }
 }

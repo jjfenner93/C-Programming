@@ -88,7 +88,7 @@ int squarert(int num);
 
 int main(int argc, char *argv[])
 {
-    unsigned int hcf1 = hcf(12, 18); // That should return 6.
+    unsigned int hcf1 = hcf(12, 18);
     printf("%d\n", hcf1);
 
     int abs1 = absolute(10);
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
     float abs2 = absolute(-56.765);
     printf("%f\n", abs2);
 
-    int squarert1 = squarert(10);
+    int squarert1 = squarert(-25);
     printf("%d", squarert1);
 
     return 0;
@@ -110,7 +110,7 @@ unsigned int hcf(unsigned int num1, unsigned int num2)
     unsigned int checker = 0;
     unsigned int lastValue = 0;
 
-    // This code is used so that it will never
+    // This is used so that it will never,
     // use a number lower (goes from the highest to compare).
     if (num1 > num2) {
         checker = num1;
@@ -144,25 +144,27 @@ float absolute(float num)
 
     if (num < 0)
     {
+        // num = -num; // quicker.
         positive = (num * 2);
         num -= positive;
-        return num;
     }
-    else
-    {
-        return num;
-    }
+
     return num;
 }
 
 int squarert(int num)
 {
-    if (absolute(num) < 0)
+    // Somehow detect if the fn gave a neg?
+    if (num < 0)
     {
-        printf("-1.0");
+        return -1.0;
     }
     else
     {
         // formula for sqrt here
+        // check numbers one at a time
+        // to see if any duplicate is 5
+        // and that be the answer
+        // e.g. for 25.
     }
 }

@@ -58,9 +58,9 @@ int gcd(int u, int v)
     // that for one of the pair of numbers only 1 was its gcd.
     // (two random odd numbers maybe).
     // otherwise e.g. arguments: 12 and 18 would be 6.
-    // Compared to my algorithm this is designed so that it will,
+    // Compared to my algorithm this one is designed so that it will,
     // use whatever numbers from the remainder rather than checking,
-    // each count from 1. Therefore this algo is faster.
+    // each count from 1 with a loop. Therefore this algo is faster.
     int temp;
 
     // If the second argument is 0 it will just return the first and exit.

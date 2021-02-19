@@ -1,0 +1,2 @@
+No modifications were made to the following files: cs50.c, cs50.h except
+for comments describing what the code does.

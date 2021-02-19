@@ -80,7 +80,8 @@ int gcd(int u, int v)
         // If the 2nd argument was higher, it seems to swap it around.
         // In order to continue decreasing and checking it somehow.
         // So the second argument will eventually be lower than the first.
-        // So that it will always be able to check against the remainder etc.
+        // So that it will always be able to check the factors against
+        // the remainder or something etc.
         v = temp;
     }
 

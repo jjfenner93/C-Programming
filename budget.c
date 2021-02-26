@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         
         // It currently exits when you input it over totalCash.
         // This does not work with a do while loop, you
-        // can't use continue.
+        // can't use 'continue'.
         if (totalCash < 0.0)
         {
             printf("Overdrawn.\n");

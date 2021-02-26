@@ -9,7 +9,6 @@
     (maybe plan out everything you want that year, or with your total cash).
     It will show the number of items you can get: e.g. 5 things.
     So that you can skimp on some expensive things.
-    Budget Planner, appealing to all, students mostly I recon.
 
     Pseudocode:
     Total cash this year/total cash you have.

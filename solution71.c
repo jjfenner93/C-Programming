@@ -1,3 +1,4 @@
+/* Algorithm Analysis */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -37,12 +38,23 @@ int main()
 
     printf ("%.2f\n\n\n\n", absoluteValue (-6.0) / 4 );
 
-    printf("%.2f\n", squareRoot(-3.0));
-    printf("%.2f\n", squareRoot(16.0));
+    float i, t, c;
+	printf("Enter the number: ");
+	scanf("%f", &c);
+    // Do not understand this algo fully at all,
+    // It must use the index to reduce it somehow,
+    // and create the answer. I can't see the false condition.
+    // It's like a recursive loop or something. It must do it,
+    // quickly like an infinite loop to reduce it to the right answer.
+	for (t = c, i = 0; i < 100; i++, t = ((t + (c / t)) / 2));
+	printf("Sqrt is %f\n", t);
+
+    printf("%.2f\n", squareRoot(4));
+    printf("%.2f\n", squareRoot(12));
     printf("%.2f\n", squareRoot(25.0));
     printf("%.2f\n", squareRoot(9.0));
     printf("%.2f\n", squareRoot(225.0));
-
+    // printf("%.2f\n", squareRoot(3150));
 
     /* testing square root */
 
@@ -90,28 +102,39 @@ int gcd(int u, int v)
 
 float squareRoot(float x)
 {
-    const  float  epsilon = .00001;
-    float  guess   = 1.0;
+    // Represents an empty value/string (epsilon).
+    // .00001 used for precision?
+    const float epsilon = .00001;
+    float guess = 1.0;
     float returnValue = 0.0;
 
-    if ( x < 0 )
+    if (x < 0)
     {
-        printf ("Negative argument to squareRoot.\n");
+        printf("Negative argument to squareRoot.\n");
         returnValue = -1.0;
     }
     else
     {
-        while  ( absoluteValue (guess * guess - x) >= epsilon )
-           guess = ( x / guess + guess ) / 2.0;
+        // Once it has guessed it will decrease via divison,
+        // until the guess matches and the number subtracted goes to 0,
+        // the absolute will make the number positive to fix that.
+        // This algorithm got stuck with a large number tho e.g. 3150.
+        // could be fixed by using a larger guess by increasing the guess?
+        // until x² = y and guess ^ 2 - x will be 0 probably.
+        while (absoluteValue (guess * guess - x) >= epsilon)
+           guess = (x / guess + guess) / 2.0;
 
         returnValue = guess;
     }
 
+    // only one return.
     return returnValue;
 }
 
 float absoluteValue(float x)
 {
+    // Here it coerces the negative to,
+    // a positive in one and done.
     if (x < 0)
         x = -x;
 

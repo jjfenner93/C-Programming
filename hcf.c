@@ -50,9 +50,9 @@
     get the number positive
     you would add 6 but that would go to 0
     You could double it but there would still be a neg sign.
-
     The num will be less than 0 and therefore a neg,
     then the formula to convert (or remove the neg sign).
+
     OK so double it, if it is a neg and then,
     subtract to make the neg a positive. Only positives.
     Noticed that it was just a formula no loops needed &
@@ -73,8 +73,10 @@
     to output 2 for the sqrt of 4.
     Desired output: 2, Input used: 4.
     utilise absolute fn? (ideally).
+    For the sqrt it uses guesswork,
+    its a^2 = b then find what b was.
 
-    
+    Study the quadratic formula to design this algo.
 
 */
 #include <stdio.h>
@@ -84,7 +86,7 @@
 
 unsigned int hcf(unsigned int num1, unsigned int num2);
 float absolute(float num);
-int squarert(int num);
+float squarert(float num);
 
 int main(int argc, char *argv[])
 {
@@ -152,19 +154,16 @@ float absolute(float num)
     return num;
 }
 
-int squarert(int num)
+float squarert(float num)
 {
+    float returnValue = 0.0;
     // Somehow detect if the fn gave a neg?
     if (num < 0)
     {
-        return -1.0;
+        returnValue = -1.0;
     }
     else
     {
-        // formula for sqrt here
-        // check numbers one at a time
-        // to see if any duplicate is 5
-        // and that be the answer
-        // e.g. for 25.
+        // Enter here.
     }
 }

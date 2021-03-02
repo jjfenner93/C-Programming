@@ -24,11 +24,12 @@
     1. It cannot ask again if you enter an item over,
     the totalCash amount, it will just exit however,
     it will subtract the previous item and display properly.
-    It also needs to say "You can purchase no items with your cash" instead.
+    It also needs to say "You can purchase 0 items with your cash" instead.
     2. It cannot take a non integer input, it will crash e.g. 'd', glitch
     or infinite loop (it must parse all the ASCII as it shouldn't).
     3. Counts itemNo even if input 0.
-    4. Probably more bugs in there.
+    4. Probably more bugs in there. ->
+    5. Registers an item for each input that is 0.
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,7 +38,11 @@
 
 int main(int argc, char *argv[])
 {
-    double totalCash = 300.00;
+    // New feature - the budget and the cash your,
+    // 'holding' along side each other.
+    // double tempCash = 24.48;
+
+    double totalCash = 294.48;
     double itemAmount = 0.0;
     unsigned int itemNo = 0;
 
@@ -66,7 +71,7 @@ int main(int argc, char *argv[])
         // it'll have to be with a for, or while.
         // Current behaviour: it exits an subtracts the item you tried adding,
         // as it went over your totalCash.
-        
+
         // It currently exits when you input it over totalCash.
         // This does not work with a do while loop, you
         // can't use 'continue'.

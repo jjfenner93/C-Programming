@@ -1,5 +1,19 @@
-#include <cs50.h>
+/*
+    Plan:
+    First thing prompt for input and ask how high you want,
+    the pyramid to be.
+    Then run a loop doing one thing and a nested loop.
+    So the first loop will increment whatever is inside it by the number.
+    The second loop inside it will add spaces so there are no gaps.
+    The third loop will add hashes on the same line.
+    And the first loop that isn't nested will create a new line hash each time.
+
+    Combining all this it will get the right aligned pyramid.
+
+    I will use spaces instead of dots.
+*/
 #include <stdio.h>
+#include <cs50.h>
 
 int main(void)
 {

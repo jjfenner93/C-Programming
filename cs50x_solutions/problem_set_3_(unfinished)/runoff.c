@@ -1,5 +1,5 @@
-#include <cs50.h>
 #include <stdio.h>
+#include <cs50.h>
 #include <string.h>
 
 // Max voters and candidates.
@@ -7,7 +7,8 @@
 #define MAX_CANDIDATES 9
 
 // preferences[i][j] is jth preference for voter i.
-int preferences[MAX_VOTERS][MAX_CANDIDATES]; // 2 dimensional array.
+// 2 dimensional array.
+int preferences[MAX_VOTERS][MAX_CANDIDATES];
 
 // Candidates have name, vote count, eliminated status.
 typedef struct
@@ -49,14 +50,24 @@ int main(int argc, string argv[])
         printf("Maximum number of candidates is %i\n", MAX_CANDIDATES);
         return 2;
     }
-    for (int i = 0; i < candidate_count; i++) // This sets everything in the array to default to begin with.
-    {
-        candidates[i].name = argv[i + 1]; // Assigns the second (not ./runoff) as a name to the array.
-        candidates[i].votes = 0; // It is set to 0 to start with.
-        candidates[i].eliminated = false; // False to start with, meaning not eliminated (later needs to eliminate).
-    } // It's going through each candidate e.g. Alice - 0, Bob - 1, Charlie - 2.
 
-    voter_count = get_int("Number of voters: "); // Put in number of voters here.
+    // This sets everything in the array to default to begin with.
+    // It's going through each candidate e.g. Alice - 0, Bob - 1, Charlie - 2.
+    for (int i = 0; i < candidate_count; i++)
+    {
+
+        // Assigns the second (not ./runoff) as a name to the array.
+        candidates[i].name = argv[i + 1];
+
+        // It is set to 0 to start with.
+        candidates[i].votes = 0;
+    
+        // False to start with, meaning not eliminated (later needs to eliminate).
+        candidates[i].eliminated = false;
+    }
+
+    // Put in number of voters here.
+    voter_count = get_int("Number of voters: ");
     if (voter_count > MAX_VOTERS)
     {
         printf("Maximum number of voters is %i\n", MAX_VOTERS);
@@ -64,16 +75,21 @@ int main(int argc, string argv[])
     }
 
     // Keep querying for votes.
-    for (int i = 0; i < voter_count; i++) // It will iterate for however many people voted.
+    // It will iterate for however many people voted.
+    for (int i = 0; i < voter_count; i++)
     {
 
         // Query for each rank.
-        for (int j = 0; j < candidate_count; j++) // It will also iterate how many candidates there were.
+        // It will also iterate how many candidates there were.
+        for (int j = 0; j < candidate_count; j++)
         {
-            string name = get_string("Rank %i: ", j + 1); // It displays 1 instead of 0, 1, 2 here (3 ranks).
+
+            // It displays 1 instead of 0, 1, 2 here (3 ranks).
+            string name = get_string("Rank %i: ", j + 1);
 
             // Record vote, unless it's invalid.
-            if (!vote(i, j, name)) // It will end the program if any wrong names are entered.
+            // It will end the program if any wrong names are entered.
+            if (!vote(i, j, name))
             {
                 printf("Invalid vote.\n");
                 return 4;
@@ -86,21 +102,29 @@ int main(int argc, string argv[])
     // Nothing is happening with only the vote function filled, it is stuck in input here.
 
     // Keep holding runoffs until winner exists.
-    while (true) // Loop is started here automatically until false.
+    // Loop is started here automatically until false.
+    while (true)
     {
+
         // Calculate votes given remaining candidates.
         tabulate();
 
         // Check if election has been won.
-        bool won = print_winner(); // If this condition is true.
+        // If this condition is true.
+        bool won = print_winner();
         if (won)
         {
-            break; // It will break out of this loop.
+
+            // It will break out of this loop.
+            break;
         }
 
         // Eliminate last-place candidates.
-        int min = find_min(); // This just finds the one with the least votes.
-        bool tie = is_tie(min); // This puts into tie if it is true or false.
+        // This just finds the one with the least votes.
+        int min = find_min();
+
+        // This puts into tie if it is true or false.
+        bool tie = is_tie(min);
 
         // If tie, everyone wins.
         if (tie)
@@ -128,19 +152,28 @@ int main(int argc, string argv[])
 }
 
 // Record preference if vote is valid.
-bool vote(int voter, int rank, string name) // That is the voter, figure out rank.
-{ // The theory is you won't need voter count here hopefully. It should store correctly it below.
-        // Query for each rank.
-        for (int i = 0; i < candidate_count; i++) // It will also iterate how many candidates there were.
+// That is the voter, figure out rank.
+bool vote(int voter, int rank, string name)
+{
+
+    // The theory is you won't need voter count here hopefully.
+    // It should store correctly it below.
+    // Query for each rank.
+    // It will also iterate how many candidates there were.
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(candidates[i].name, name) == 0)
         {
-            if (strcmp(candidates[i].name, name) == 0)
-            {
+
                 // For the first voter it is the first preference.
                 // vote sets first preference for first voter.
-                // then you should update the global preferences array to indicate that the voter
-                // voter has that candidate as their rank preference (where 0 is the first preference,
+                // then you should update the global preferences
+                // array to indicate that the voter
+                // voter has that candidate as their rank preference
+                // (where 0 is the first preference,
                 // 1 is the second preference, etc.).
-                preferences[voter][rank] += i; // The voters and candidates go in the preferences array.
+                // The voters and candidates go in the preferences array.
+                preferences[voter][rank] += i;
                 // The first voters preference for the first candidate.
                 // The candidate number goes in the first voters preference.
                 // e.g. VOTER 1: Rank 1 - Bob, Rank 2 - Alice, Rank 3 - Charlie.
@@ -148,8 +181,9 @@ bool vote(int voter, int rank, string name) // That is the voter, figure out ran
                 // e.g. VOTER 3: Rank 1 - Charlie, Rank 2 - Bob, Rank 3 - Alice.
                 // printf("Rank: %d\n", rank);
 
-                // This does not work with Charlie for some reason...
-                // printf("Preferences: %d\n", preferences[voter][rank]); // Keep this here for debugging reasons.
+                // This does not work with Charlie for some reason.
+                // Keep this here for debugging reasons.
+                // printf("Preferences: %d\n", preferences[voter][rank]);
                 // It is correctly storing the candidates value (0 - Alice, 1 - Bob, 2 - Charlie).
                 return true;
             }
@@ -162,15 +196,20 @@ void tabulate(void)
 {
     // Add one vote to the top rank for each voter here I think.
     // Somehow add one vote to the voters in every Rank 1 entry.
-
-    for (int i = 0; i < voter_count; i++) // For the first voter, it will iterate for each candidate.
+    // For the first voter, it will iterate for each candidate.
+    for (int i = 0; i < voter_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++) // It will also iterate how many candidates there were.
+
+        // It will also iterate how many candidates there were.
+        for (int j = 0; j < candidate_count; j++)
         {
 
-            if (candidates[j].eliminated == false) // If any of them are not eliminated, continue.
+            // If any of them are not eliminated, continue.
+            if (candidates[j].eliminated == false)
             {
-                if (preferences[i][0] == 0) // remember candidates[i] // is the first.
+
+                // Remember candidates[i] // is the first.
+                if (preferences[i][0] == 0)
                 {
                     candidates[0].votes++;
                     break;
@@ -185,15 +224,26 @@ void tabulate(void)
                     candidates[2].votes++;
                     break;
                 }
-                // It will skip to this condition below if the candidate is eliminated.
-                } else if (candidates[j].eliminated == true) // If the first candidate for the first voter is true.
+
+                // It will skip to this condition below if the,
+                // candidate is eliminated.
+                // If the first candidate for the first voter is true.
+                } else if (candidates[j].eliminated == true)
                 {
-                if (preferences[i][1] == 0) // remember candidates[i] // is the first.
-                { // For the first voter at Rank 2 is Alice then add one to Alice.
+
+                // Remember candidates[i] // is the first.
+                if (preferences[i][1] == 0)
+                {
+
+                    // For the first voter at Rank 2 is Alice then
+                    // add one to Alice.
+                    // If when looping, at position [0][0],
+                    // for pref[0][1] is 0 and not eliminated
+                    // If Alice has been eliminated,
+                    // add one to Rank 2 for Voter 1,
+                    // and if Rank 2 eliminated and one to Rank 3.
                     candidates[0].votes++;
                     break;
-            // If when looping, at position [0][0], for pref[0][1] is 0 and not eliminated
-                    // If Alice has been eliminated, add one to Rank 2 for Voter 1, and if Rank 2 eliminated and one to Rank 3.
                 }
                 else if (preferences[i][1] == 1)
                 {

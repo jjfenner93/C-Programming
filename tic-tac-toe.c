@@ -10,3 +10,9 @@
     markBoard - sets the char array with a selection 
     and check for an invalid selection.
 */
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Write here.");
+}

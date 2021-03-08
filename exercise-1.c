@@ -146,6 +146,7 @@ float absolute(float num)
 
     if (num < 0)
     {
+
         // num = -num; // quicker.
         positive = (num * 2);
         num -= positive;
@@ -157,6 +158,7 @@ float absolute(float num)
 float squarert(float num)
 {
     float returnValue = 0.0;
+
     // Somehow detect if the fn gave a neg?
     if (num < 0)
     {

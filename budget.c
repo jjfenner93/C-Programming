@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     // 'holding' along side each other.
     // double tempCash = 24.48;
 
-    double totalCash = 294.48;
+    double totalCash = 482.75;
     double itemAmount = 0.0;
     unsigned int itemNo = 0;
 

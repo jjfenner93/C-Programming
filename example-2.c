@@ -12,7 +12,7 @@ int main()
 
     float  f1 = -15.5, f2 = 20.0, f3 = -5.0;
     int    i1 = -716;
-    float absoluteValueResult = 0.0;
+    float  absoluteValueResult = 0.0;
 
     result = gcd(12, 18);
     printf("The gcd of 12 and 18 is %d\n", result);
@@ -41,6 +41,7 @@ int main()
     float i, t, c;
 	printf("Enter the number: ");
 	scanf("%f", &c);
+
     // Do not understand this algo fully at all,
     // It must use the index to reduce it somehow,
     // and create the answer. I can't see the false condition.
@@ -63,6 +64,7 @@ int main()
 
 int gcd(int u, int v)
 {
+
     // My theory behind this algorithm is that it is like
     // a mental mathematical model of what you would do with the remainder,
     // to slowly decrease it and see what the gcd was for both of them,
@@ -78,6 +80,7 @@ int gcd(int u, int v)
     // If the second argument is 0 it will just return the first and exit.
     while( v != 0)
     {
+
         // The remainder of the two numbers (v into u) will go into temp.
         // Then the variables will change around a lot.
         // It will keep checking the modulus and slowly,
@@ -102,6 +105,7 @@ int gcd(int u, int v)
 
 float squareRoot(float x)
 {
+
     // Represents an empty value/string (epsilon).
     // .00001 used for precision?
     const float epsilon = .00001;
@@ -115,6 +119,7 @@ float squareRoot(float x)
     }
     else
     {
+
         // Once it has guessed it will decrease via divison,
         // until the guess matches and the number subtracted goes to 0,
         // the absolute will make the number positive to fix that.
@@ -133,6 +138,7 @@ float squareRoot(float x)
 
 float absoluteValue(float x)
 {
+
     // Here it coerces the negative to,
     // a positive in one and done.
     if (x < 0)

@@ -21,6 +21,7 @@ int main(void) {
   int i;
   char msg[25];
 
+  // It reverses the characters input.
   printf("Type up to 25 characters and then press Enter...\n");
   for (i = 0; i < 25; i++)
   {

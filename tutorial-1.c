@@ -52,14 +52,13 @@ int main(void) {
   n1 = getchar(); // Newline again.
   printf("Output: %c%c\n", firstInit, lastInit); // Prints your initials.
   */
-
   /*
   printf("What are your two initials?\n");
   firstInit = getch(); // Asking for the first initial.
   putch(firstInit);
   lastInit = getch(); // Now to enter the next.
   putch(lastInit);
-  printf("Output: %c%c\n", firstInit, lastInit); // Prints your initials.
+  printf("\nOutput: %c%c\n", firstInit, lastInit); // Prints your initials.
   */
   /*
   // Maybe try to make the coin mech but in code form:
@@ -141,7 +140,7 @@ int main(void) {
   return 0;
 }
 
-/*
+/* Abandoned code.
 bool issymbol(string input)
 {
   if (!isalnum(input) && !isalpha(input))

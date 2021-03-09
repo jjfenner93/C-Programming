@@ -35,17 +35,17 @@ int main(int argc, char *argv[])
     int num = 10, num2 = 20;
     int d;
 
-    //Pi is made to be a constant.
+    // Pi is made to be a constant.
     printf("Pi is %f\n", Pi);
 
-    //Calculates two numbers.
+    // Calculates two numbers.
     d = num * num2;
     printf("num and num2 equals: %d\n", d);
 
     d = num + num2;
     printf("num and num2 equals now: %d\n", d);
 
-    //Checks if num is less than or equal to num2.
+    // Checks if num is less than or equal to num2.
     if(num <= num2) {
 
         printf("Yes it is.\n");
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
     int t;
     char choice;
-    //Will repeat the input of a passcode until you type 'N'.
+    // Will repeat the input of a passcode until you type 'N'.
     do
     {
     fflush(stdin);
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     int randomNumber;
-    //Will only print multiples of 5 counting up to 100. (currently)
+    // Will only print multiples of 5 counting up to 100. (currently)
     for(randomNumber = 10; randomNumber < 100; randomNumber++) {
         if(randomNumber % 5 == 0) {
         printf("%d \n", randomNumber);
@@ -99,10 +99,10 @@ int main(int argc, char *argv[])
     printf("Another line from there.\n");
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //String. (In an array it seems)
+    // String. (In an array it seems)
     char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0' };
     printf("Greeting message: %s\n", greeting);
-    //return 0;
+    // return 0;
 }
 
 void draw(int h)

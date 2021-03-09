@@ -37,6 +37,7 @@ int main(int argc, char **argv) {
 
 int function(void)
 {
+  // Testing the behavior of the function here.
   return 0;
   printf("Hello");
 }
